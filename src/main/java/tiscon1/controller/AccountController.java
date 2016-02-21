@@ -74,10 +74,23 @@ public class AccountController {
             return "newAccountOrSignIn";
         }
         Customer customer = new Customer(form.getName(), form.getEmail(), form.getPassword());
-        customerRepository.save(customer);
-        UserPrincipal principal = new UserPrincipal(form.getName());
-        session.setAttribute("principal", principal);
-        return "redirect:/my/account?id=" + customer.getId();
+//        for (int i = 0; i < customerRepository.findAll().size(); i++) {
+////            System.out.println(customerRepository.findAll().get(i));
+////            customerRepository.findAll(customer);
+//        }
+//
+//        if (form.getName() == UserPrincipal.getName()
+
+        if (customerRepository.findOne(Specifications
+                .where((Specification<Customer>) (root, query, cb) ->
+                        cb.equal(root.get("name"), form.getName()))) != null) {
+            return "newAccountOrSignIn";
+        } else {
+             customerRepository.save(customer);
+             UserPrincipal principal = new UserPrincipal(form.getName());
+             session.setAttribute("principal", principal);
+             return "redirect:/my/account?id=" + customer.getId();
+        }
     }
 
     @RequestMapping(value="/my/account", method=RequestMethod.GET)

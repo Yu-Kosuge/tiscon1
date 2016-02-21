@@ -16,7 +16,7 @@
 
                 <div class="col-md-6">
                     <div class="box">
-                        <h1>New account</h1>
+                        <h1>New account!!</h1>
 
                         <p class="lead">Not our registered customer yet?</p>
                         <p>With registration with us new world of fashion, fantastic discounts and much more opens to you! The whole process will not take you more than a minute!</p>

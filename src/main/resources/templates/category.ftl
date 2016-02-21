@@ -1,6 +1,9 @@
 <#import "layout.ftl" as layout/>
 <#import "spring.ftl" as spring/>
 
+<#import "layout.ftl" as layout/>
+<#import "spring.ftl" as spring/>
+
 <@layout.layout "Register">
     <div id="all">
         <div id="content">
@@ -22,10 +25,11 @@
  _________________________________________________________ -->
                     <div class="panel panel-default sidebar-menu">
 
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Ranking</h3>
+                        <div class="panel-heading"  onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
+                            <h3 class="panel-title" style="cursor:pointer;">Ranking</h3>
                         </div>
 
+                      <div id="open" style="display:none;clear:both;">
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-stacked category-menu">
                                 <#if genreId=="33">
@@ -37,7 +41,11 @@
                                 <#else>
                                     <li>
                                 </#if>
-                                        <a href="/category?genreId=33&subgenreId=">MOVIE </a>
+                                      <div class="panel-heading" onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';">
+                                        <p>MOVIE <a href="/category?genreId=33&subgenreId=">(一覧) </a></p>
+
+                                      </div>
+                                        <div id="open1" style="display:none;clear:both;">
                                         <ul>
                                             <#list movieGenres as movie>
                                                 <li>
@@ -49,6 +57,7 @@
                                                 </li>
                                             </#list>
                                         </ul>
+                                        </div>
                                     </li>
                                 <#if genreId=="34">
                                     <#if subgenreId?has_content>
@@ -59,7 +68,10 @@
                                 <#else>
                                     <li>
                                 </#if>
-                                        <a href="/category?genreId=34&subgenreId=">MUSIC </a>
+                                    <div class="panel-heading" onclick="obj=document.getElementById('open2').style; obj.display=(obj.display=='none')?'block':'none';">
+                                        <p>   MUSIC <a href="/category?genreId=34&subgenreId="> (一覧)</a></p>
+                                    </div>
+                                    <div id="open2" style="display:none;clear:both;">
                                         <ul>
                                             <#list musicGenres as music>
                                                 <li>
@@ -71,9 +83,11 @@
                                                 </li>
                                             </#list>
                                         </ul>
+                                        </div>
                                     </li>
                             </ul>
                         </div>
+                       </div>
                     </div>
                     <!-- *** 検索機能用エリア
                     <div class="panel panel-default sidebar-menu">

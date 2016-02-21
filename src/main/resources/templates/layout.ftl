@@ -48,7 +48,7 @@
     <div id="top">
         <div class="container">
             <div class="col-md-6 offer" data-animate="fadeInDown">
-                <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $50!</a>
+                <a href="#" class="btn btn-success btn-sm">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $50!</a>
             </div>
             <div class="col-md-6" data-animate="fadeInDown">
                 <ul class="menu">
@@ -322,8 +322,8 @@
                         <h4>Stay in touch</h4>
 
                         <p class="social">
-                            <a href="http://www.facebook.com/tis.recruit" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
-                            <a href="mailto:recruit★tis.co.jp" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
+                            <a href="http://www.facebook.com/tis.recruit" class="facebook external"><i class="fa fa-facebook"></i></a>
+                            <a href="mailto:recruit★tis.co.jp" class="email external"><i class="fa fa-envelope"></i></a>
                             <h6>メールアドレスの★を@に変換してください。</h6>
                         </p>
 

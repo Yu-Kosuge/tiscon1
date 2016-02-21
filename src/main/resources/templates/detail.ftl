@@ -1,12 +1,13 @@
 <#import "layout.ftl" as layout/>
 <#import "spring.ftl" as spring/>
 
+<#import "layout.ftl" as layout/>
+<#import "spring.ftl" as spring/>
+
 <@layout.layout "Register">
     <div id="all">
-
         <div id="content">
             <div class="container">
-
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li><a href="/">Home</a></li>
@@ -14,13 +15,9 @@
                             <li><a href="/category?genreId=${genreId}&subgenreId=">${genreName} </a></li>
                         </#if>
                         <#if subgenreName?has_content>
-                            <li><a href="/category?genreId=${genreId}&subgenreId=${subgenreId}">${subgenreName} </a></li>
-                        </#if>
-                        <#if item.title?has_content>
-                            <li>${item.title} </li>
+                            <li>${subgenreName} </a></li>
                         </#if>
                     </ul>
-
                 </div>
 
                 <div class="col-md-3">
@@ -28,38 +25,69 @@
  _________________________________________________________ -->
                     <div class="panel panel-default sidebar-menu">
 
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Ranking</h3>
+                        <div class="panel-heading"  onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
+                            <h3 class="panel-title" style="cursor:pointer;">Ranking</h3>
                         </div>
 
+                      <div id="open" style="display:none;clear:both;">
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-stacked category-menu">
                                 <#if genreId=="33">
-                                    <li class="active">
+                                    <#if subgenreId?has_content>
+                                        <li>
+                                    <#else>
+                                        <li class="active">
+                                    </#if>
                                 <#else>
                                     <li>
                                 </#if>
-                                        <a href="/category?genreId=33&subgenreId=">MOVIE </a>
+                                      <div class="panel-heading" onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';">
+                                        <p>MOVIE <a href="/category?genreId=33&subgenreId=">(一覧) </a></p>
+
+                                      </div>
+                                        <div id="open1" style="display:none;clear:both;">
                                         <ul>
                                             <#list movieGenres as movie>
-                                                <li><a href="/category?genreId=33&subgenreId=${movie.id}">${movie.name?html}</a></li>
+                                                <li>
+                                                    <#if subgenreId==movie.id>
+                                                        <div style="background:#4fbfa8;"><a href="/category?genreId=33&subgenreId=${movie.id}">${movie.name?html}</a></div>
+                                                    <#else>
+                                                        <a href="/category?genreId=33&subgenreId=${movie.id}">${movie.name?html}</a>
+                                                    </#if>
+                                                </li>
                                             </#list>
                                         </ul>
+                                        </div>
                                     </li>
                                 <#if genreId=="34">
-                                    <li class="active">
+                                    <#if subgenreId?has_content>
+                                        <li>
+                                    <#else>
+                                        <li class="active">
+                                    </#if>
                                 <#else>
                                     <li>
                                 </#if>
-                                        <a href="/category?genreId=34&subgenreId=">MUSIC </a>
+                                    <div class="panel-heading" onclick="obj=document.getElementById('open2').style; obj.display=(obj.display=='none')?'block':'none';">
+                                        <p>   MUSIC <a href="/category?genreId=34&subgenreId="> (一覧)</a></p>
+                                    </div>
+                                    <div id="open2" style="display:none;clear:both;">
                                         <ul>
                                             <#list musicGenres as music>
-                                                <li><a href="/category?genreId=34&subgenreId=${music.id}">${music.name?html}</a></li>
+                                                <li>
+                                                    <#if subgenreId==music.id>
+                                                        <div style="background:#4fbfa8;"><a href="/category?genreId=34&subgenreId=${music.id}">${music.name?html}</a></div>
+                                                    <#else>
+                                                        <a href="/category?genreId=34&subgenreId=${music.id}">${music.name?html}</a>
+                                                    </#if>
+                                                </li>
                                             </#list>
                                         </ul>
+                                        </div>
                                     </li>
                             </ul>
                         </div>
+                       </div>
                     </div>
                     <!-- *** 検索機能用エリア
                     <div class="panel panel-default sidebar-menu">
